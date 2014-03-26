@@ -8,11 +8,11 @@ namespace TestApplication.REST.model
 {
     public class UserInfo
     {
-        public String UserGUID { get; set; }
-        public String UserAccount { get; set; }
-        public String UserName { get; set; }
-        public String Password { get; set; }
-        public int RoleID { get; set; }
-        public int Status { get; set; }
+        public String userGUID { get; set; }
+        public String userAccount { get; set; }
+        public String userName { get; set; }
+        public String password { get; set; }
+        public int roleID { get; set; }
+        public int status { get; set; }
     }
 }

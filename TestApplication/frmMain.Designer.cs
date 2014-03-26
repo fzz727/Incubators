@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnRestUser = new System.Windows.Forms.Button();
+            this.btnPost = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRestUser
@@ -41,11 +42,22 @@
             this.btnRestUser.UseVisualStyleBackColor = true;
             this.btnRestUser.Click += new System.EventHandler(this.btnRestUser_Click);
             // 
+            // btnPost
+            // 
+            this.btnPost.Location = new System.Drawing.Point(13, 34);
+            this.btnPost.Name = "btnPost";
+            this.btnPost.Size = new System.Drawing.Size(150, 23);
+            this.btnPost.TabIndex = 1;
+            this.btnPost.Text = "Post User via JSON";
+            this.btnPost.UseVisualStyleBackColor = true;
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 310);
+            this.Controls.Add(this.btnPost);
             this.Controls.Add(this.btnRestUser);
             this.Name = "frmMain";
             this.Text = "测试项目";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnRestUser;
+        private System.Windows.Forms.Button btnPost;
     }
 }
 

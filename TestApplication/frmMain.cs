@@ -40,7 +40,7 @@ namespace TestApplication
             // or automatically deserialize result
             // return content type is sniffed but can be explicitly set via RestClient.AddHandler();
             IRestResponse<List<REST.model.UserInfo>> response2 = client.Execute<List<REST.model.UserInfo>>(request);
-            String name = response2.Data[0].UserName;
+            String name = response2.Data[0].userName;
 
             // easy async support
             //client.ExecuteAsync(request, response =>
@@ -56,6 +56,27 @@ namespace TestApplication
 
             // abort the request on demand
             //asyncHandle.Abort();
+        }
+
+        private void btnPost_Click(object sender, EventArgs e)
+        {
+            RestClient client = new RestClient("http://localhost:8080/miwps.web/services/api");
+
+            RestRequest request = new RestRequest("save", Method.POST);
+
+            request.RequestFormat = DataFormat.Json;
+
+            request.AddBody(new REST.model.UserInfo() { 
+                userGUID = "1111", 
+                userAccount = "test", 
+                password = "password", 
+                roleID = 4, 
+                status = 0, 
+                userName = "测试POST" 
+            });
+
+            IRestResponse response = client.Execute(request);
+            String content = response.Content; 
         }
     }
 }
