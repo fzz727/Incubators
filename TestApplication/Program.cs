@@ -16,7 +16,7 @@ namespace TestApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGMap());
+            Application.Run(new frmMain());
         }
     }
 }

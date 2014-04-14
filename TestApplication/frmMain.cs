@@ -78,5 +78,38 @@ namespace TestApplication
             IRestResponse response = client.Execute(request);
             String content = response.Content; 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //String s = System.IO.File.ReadAllText(Application.StartupPath + "\\report.json");
+
+            RestClient client = new RestClient("http://localhost:8080/miwps.web/services/BllReportInfo");
+
+            RestRequest request = new RestRequest("GetModel", Method.GET);
+            request.AddParameter("reportID", 12190);
+
+            IRestResponse response = client.Execute(request);
+
+            String content = response.Content;
+
+            int pO = content.IndexOf("DocxTemplate");
+
+            int pS = content.IndexOf(":", pO)+1;
+            int pE = content.IndexOf(",", pO);
+
+            String strBase64 = content.Substring(pS, pE - pS).Trim(new Char[] { ' ', '"' });
+
+            byte[] b = Convert.FromBase64String(strBase64);
+            MessageBox.Show("ByteArray Length: " + b.Length.ToString());
+
+            //client.AddHandler("application/json", new ByteArratDesc());
+
+            //ReportInfo report = client.Execute<ReportInfo>(request).Data;
+
+
+            ReportInfo report = (ReportInfo)Newtonsoft.Json.JsonConvert.DeserializeObject(content, typeof(ReportInfo));
+
+            MessageBox.Show(report.ReportName);
+        }
     }
 }
