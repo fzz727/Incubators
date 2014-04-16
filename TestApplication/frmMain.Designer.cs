@@ -31,6 +31,10 @@
             this.btnRestUser = new System.Windows.Forms.Button();
             this.btnPost = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnLoginSinaWeibo = new System.Windows.Forms.Button();
+            this.btnPublishSinaWeibo = new System.Windows.Forms.Button();
+            this.btnLoginTencentWeibo = new System.Windows.Forms.Button();
+            this.btnPublishTencentWeibo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRestUser
@@ -63,11 +67,52 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnLoginSinaWeibo
+            // 
+            this.btnLoginSinaWeibo.Location = new System.Drawing.Point(13, 90);
+            this.btnLoginSinaWeibo.Name = "btnLoginSinaWeibo";
+            this.btnLoginSinaWeibo.Size = new System.Drawing.Size(150, 23);
+            this.btnLoginSinaWeibo.TabIndex = 3;
+            this.btnLoginSinaWeibo.Text = "登录新浪微博";
+            this.btnLoginSinaWeibo.UseVisualStyleBackColor = true;
+            this.btnLoginSinaWeibo.Click += new System.EventHandler(this.btnLoginSinaWeibo_Click);
+            // 
+            // btnPublishSinaWeibo
+            // 
+            this.btnPublishSinaWeibo.Location = new System.Drawing.Point(13, 120);
+            this.btnPublishSinaWeibo.Name = "btnPublishSinaWeibo";
+            this.btnPublishSinaWeibo.Size = new System.Drawing.Size(150, 23);
+            this.btnPublishSinaWeibo.TabIndex = 4;
+            this.btnPublishSinaWeibo.Text = "发布新浪微博";
+            this.btnPublishSinaWeibo.UseVisualStyleBackColor = true;
+            // 
+            // btnLoginTencentWeibo
+            // 
+            this.btnLoginTencentWeibo.Location = new System.Drawing.Point(13, 150);
+            this.btnLoginTencentWeibo.Name = "btnLoginTencentWeibo";
+            this.btnLoginTencentWeibo.Size = new System.Drawing.Size(150, 23);
+            this.btnLoginTencentWeibo.TabIndex = 5;
+            this.btnLoginTencentWeibo.Text = "登陆腾讯微博";
+            this.btnLoginTencentWeibo.UseVisualStyleBackColor = true;
+            // 
+            // btnPublishTencentWeibo
+            // 
+            this.btnPublishTencentWeibo.Location = new System.Drawing.Point(13, 180);
+            this.btnPublishTencentWeibo.Name = "btnPublishTencentWeibo";
+            this.btnPublishTencentWeibo.Size = new System.Drawing.Size(150, 23);
+            this.btnPublishTencentWeibo.TabIndex = 6;
+            this.btnPublishTencentWeibo.Text = "发布腾讯微博";
+            this.btnPublishTencentWeibo.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 286);
+            this.Controls.Add(this.btnPublishTencentWeibo);
+            this.Controls.Add(this.btnLoginTencentWeibo);
+            this.Controls.Add(this.btnPublishSinaWeibo);
+            this.Controls.Add(this.btnLoginSinaWeibo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPost);
             this.Controls.Add(this.btnRestUser);
@@ -82,6 +127,10 @@
         private System.Windows.Forms.Button btnRestUser;
         private System.Windows.Forms.Button btnPost;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLoginSinaWeibo;
+        private System.Windows.Forms.Button btnPublishSinaWeibo;
+        private System.Windows.Forms.Button btnLoginTencentWeibo;
+        private System.Windows.Forms.Button btnPublishTencentWeibo;
     }
 }
 

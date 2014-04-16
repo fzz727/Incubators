@@ -111,5 +111,55 @@ namespace TestApplication
 
             MessageBox.Show(report.ReportName);
         }
+
+        private void btnLoginSinaWeibo_Click(object sender, EventArgs e)
+        {
+            var oauth = new NetDimension.Weibo.OAuth("4140231521", "f52aeab2417234cc731c6b5fddca5257", "https://api.weibo.com/oauth2/default.html");
+            bool result = oauth.ClientLogin("fzz727@sina.com", "anj2lear");
+            if (result) //返回true授权成功
+            {
+                Console.WriteLine(oauth.AccessToken); //还是来打印下AccessToken看看与前面方式获取的是不是一样的
+                var Sina = new NetDimension.Weibo.Client(oauth);
+                var uid = Sina.API.Dynamic.Account.GetUID(); //调用API中获取UID的方法
+                Console.WriteLine(uid);
+            }
+
+            //var oauth = new NetDimension.Weibo.OAuth("4140231521", "f52aeab2417234cc731c6b5fddca5257", "https://api.weibo.com/oauth2/default.html");
+            //var authUrl = oauth.GetAuthorizeURL();
+            //System.Diagnostics.Process.Start(authUrl);
+
+
+            //RestClient client = new RestClient("https://api.weibo.com/oauth2");
+
+            //RestRequest request = new RestRequest("authorize", Method.GET);
+
+            //request.RequestFormat = DataFormat.Json;
+            //request.AddParameter("client_id", "4140231521");
+            //request.AddParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html");
+            //request.AddParameter("scope", "all");
+            //request.AddParameter("display", "client");
+
+            ////request.AddParameter("client_secret", "f52aeab2417234cc731c6b5fddca5257");
+            ////request.AddParameter("grant_type", "authorization_code");
+
+            ////request.AddParameter("code", "CODE");
+            
+            //IRestResponse response = client.Execute(request);
+
+            //if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            //{
+            //    Console.WriteLine("OK: ");
+
+            //    String content = response.Content;
+
+            //    Console.WriteLine(content);
+            //}
+            //else
+            //{
+            //    String content = response.Content;
+            //    Console.WriteLine("Failed: ");
+            //    Console.WriteLine(content);
+            //}
+        }
     }
 }
