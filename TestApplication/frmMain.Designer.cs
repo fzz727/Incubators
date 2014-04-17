@@ -35,6 +35,8 @@
             this.btnPublishSinaWeibo = new System.Windows.Forms.Button();
             this.btnLoginTencentWeibo = new System.Windows.Forms.Button();
             this.btnPublishTencentWeibo = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnRestUser
@@ -104,11 +106,29 @@
             this.btnPublishTencentWeibo.Text = "发布腾讯微博";
             this.btnPublishTencentWeibo.UseVisualStyleBackColor = true;
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(170, 4);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(444, 478);
+            this.webBrowser1.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(620, 4);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(370, 478);
+            this.textBox1.TabIndex = 8;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 286);
+            this.ClientSize = new System.Drawing.Size(1002, 494);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btnPublishTencentWeibo);
             this.Controls.Add(this.btnLoginTencentWeibo);
             this.Controls.Add(this.btnPublishSinaWeibo);
@@ -119,6 +139,7 @@
             this.Name = "frmMain";
             this.Text = "测试项目";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,6 +152,8 @@
         private System.Windows.Forms.Button btnPublishSinaWeibo;
         private System.Windows.Forms.Button btnLoginTencentWeibo;
         private System.Windows.Forms.Button btnPublishTencentWeibo;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

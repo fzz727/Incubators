@@ -114,7 +114,38 @@ namespace TestApplication
 
         private void btnLoginSinaWeibo_Click(object sender, EventArgs e)
         {
+
+            String url = "https://api.weibo.com/oauth2/authorize?client_id=4140231521&redirect_uri=https://api.weibo.com/oauth2/default.html&scope=all&display=client";
+
+            this.webBrowser1.Url = new System.Uri(url);
+
+            this.webBrowser1.DocumentCompleted += (object ws, WebBrowserDocumentCompletedEventArgs we) => {
+
+                String codeUrl = we.Url.AbsoluteUri;
+
+                this.textBox1.AppendText(we.Url.AbsoluteUri + "\r\n");
+
+                if (codeUrl.IndexOf("code") > 0)
+                {
+                    String code = codeUrl.Substring(codeUrl.IndexOf("code") + 5);
+
+                    this.textBox1.AppendText(code + "\r\n");
+
+                    RetrieveToken(code);
+                }
+
+            };
+
+            int a = 1;
+            if (a == 1)
+            {
+                return;
+            }
+
             var oauth = new NetDimension.Weibo.OAuth("4140231521", "f52aeab2417234cc731c6b5fddca5257", "https://api.weibo.com/oauth2/default.html");
+
+            NetDimension.Weibo.AccessToken token =  oauth.GetAccessTokenByPassword("fzz727@sina.com", "anj2lear");
+
             bool result = oauth.ClientLogin("fzz727@sina.com", "anj2lear");
             if (result) //返回true授权成功
             {
@@ -129,37 +160,44 @@ namespace TestApplication
             //System.Diagnostics.Process.Start(authUrl);
 
 
-            //RestClient client = new RestClient("https://api.weibo.com/oauth2");
-
-            //RestRequest request = new RestRequest("authorize", Method.GET);
-
-            //request.RequestFormat = DataFormat.Json;
-            //request.AddParameter("client_id", "4140231521");
-            //request.AddParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html");
-            //request.AddParameter("scope", "all");
-            //request.AddParameter("display", "client");
-
-            ////request.AddParameter("client_secret", "f52aeab2417234cc731c6b5fddca5257");
-            ////request.AddParameter("grant_type", "authorization_code");
-
-            ////request.AddParameter("code", "CODE");
             
-            //IRestResponse response = client.Execute(request);
+        }
 
-            //if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            //{
-            //    Console.WriteLine("OK: ");
+        public void RetrieveToken(String code)
+        {
+            RestClient client = new RestClient("https://api.weibo.com/oauth2/");
 
-            //    String content = response.Content;
+            RestRequest request = new RestRequest("access_token", Method.POST);
 
-            //    Console.WriteLine(content);
-            //}
-            //else
-            //{
-            //    String content = response.Content;
-            //    Console.WriteLine("Failed: ");
-            //    Console.WriteLine(content);
-            //}
+            request.AddParameter("client_id", "4140231521");
+            request.AddParameter("redirect_uri", "https://api.weibo.com/oauth2/default.html");
+            request.AddParameter("scope", "all");
+            request.AddParameter("display", "client");
+
+            request.AddParameter("client_secret", "f52aeab2417234cc731c6b5fddca5257");
+            request.AddParameter("grant_type", "authorization_code");
+
+            request.AddParameter("code", code);
+
+            IRestResponse response = client.Execute(request);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                Console.WriteLine("OK: ");
+
+                String content = response.Content;
+                Console.WriteLine(content);
+
+                MessageBox.Show(content);
+            }
+            else
+            {
+                String content = response.Content;
+                Console.WriteLine("Failed: ");
+                Console.WriteLine(content);
+
+                MessageBox.Show(content);
+            }
         }
     }
 }

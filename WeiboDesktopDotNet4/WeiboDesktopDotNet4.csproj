@@ -39,9 +39,6 @@
     <ApplicationIcon>twitter.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NetDimension.Weibo">
-      <HintPath>..\..\Libs\NET40\NetDimension.Weibo.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -133,6 +130,12 @@
     <Content Include="FormIcon.ico" />
     <Content Include="Resources\FormIcon.ico" />
     <Content Include="twitter.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetDimension.Weibo\NetDimension.Weibo40.csproj">
+      <Project>{7b795714-40d6-4b2e-a277-cbe13c33e1ed}</Project>
+      <Name>NetDimension.Weibo40</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -38,10 +38,8 @@
     <Reference Include="GMap.NET.WindowsForms">
       <HintPath>..\packages\GMap.NET.WindowsForms.1.7\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
     </Reference>
-    <Reference Include="NetDimension.Weibo">
-      <HintPath>..\packages\NetDimension.Weibo.1.40.0.24636\lib\net40\NetDimension.Weibo.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
@@ -61,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteArratDesc.cs" />
-    <Compile Include="DynamicJson.cs" />
     <Compile Include="ReportInfo.cs" />
     <Compile Include="frmGMap.cs">
       <SubType>Form</SubType>
@@ -109,6 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetDimension.Weibo\NetDimension.Weibo40.csproj">
+      <Project>{7b795714-40d6-4b2e-a277-cbe13c33e1ed}</Project>
+      <Name>NetDimension.Weibo40</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
