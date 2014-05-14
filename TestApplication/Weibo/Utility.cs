@@ -92,7 +92,7 @@ namespace Jeff.Weibo
                 else
                 {
                     buff.Write(headerBuff, 0, headerBuff.Length);
-                    string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: \"image/unknow\"\r\nContent-Transfer-Encoding: binary\r\n\r\n";
+                    string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: \"image/jpeg\"\r\n\r\n";
                     byte[] fileBuff = System.Text.Encoding.UTF8.GetBytes(string.Format(headerTemplate, p.Name, string.Format("upload{0}", BitConverter.ToInt64(Guid.NewGuid().ToByteArray(), 0))));
                     buff.Write(fileBuff, 0, fileBuff.Length);
                     byte[] file = (byte[])p.Value;

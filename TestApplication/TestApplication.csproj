@@ -79,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weibo\AccessToken.cs" />
     <Compile Include="Weibo\SinaWeibo.cs" />
+    <Compile Include="Weibo\TencentWeibo.cs" />
     <Compile Include="Weibo\Utility.cs" />
     <Compile Include="Weibo\WeiboBase.cs" />
     <Compile Include="Weibo\WeiboParameter.cs" />

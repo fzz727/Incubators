@@ -36,6 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnPublishSinaPicWeibo = new System.Windows.Forms.Button();
             this.btnConvertDocToJpg = new System.Windows.Forms.Button();
+            this.btnLoginTencentWeibo2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoginSinaWeibo
@@ -66,6 +67,7 @@
             this.btnLoginTencentWeibo.TabIndex = 5;
             this.btnLoginTencentWeibo.Text = "登陆腾讯微博";
             this.btnLoginTencentWeibo.UseVisualStyleBackColor = true;
+            this.btnLoginTencentWeibo.Click += new System.EventHandler(this.btnLoginTencentWeibo_Click);
             // 
             // btnPublishTencentWeibo
             // 
@@ -83,6 +85,8 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(444, 478);
             this.webBrowser1.TabIndex = 7;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
             // 
             // textBox1
             // 
@@ -112,11 +116,22 @@
             this.btnConvertDocToJpg.UseVisualStyleBackColor = true;
             this.btnConvertDocToJpg.Click += new System.EventHandler(this.btnConvertDocToJpg_Click);
             // 
+            // btnLoginTencentWeibo2
+            // 
+            this.btnLoginTencentWeibo2.Location = new System.Drawing.Point(14, 261);
+            this.btnLoginTencentWeibo2.Name = "btnLoginTencentWeibo2";
+            this.btnLoginTencentWeibo2.Size = new System.Drawing.Size(150, 23);
+            this.btnLoginTencentWeibo2.TabIndex = 11;
+            this.btnLoginTencentWeibo2.Text = "登陆腾讯微博2";
+            this.btnLoginTencentWeibo2.UseVisualStyleBackColor = true;
+            this.btnLoginTencentWeibo2.Click += new System.EventHandler(this.btnLoginTencentWeibo2_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 494);
+            this.Controls.Add(this.btnLoginTencentWeibo2);
             this.Controls.Add(this.btnConvertDocToJpg);
             this.Controls.Add(this.btnPublishSinaPicWeibo);
             this.Controls.Add(this.textBox1);
@@ -142,6 +157,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnPublishSinaPicWeibo;
         private System.Windows.Forms.Button btnConvertDocToJpg;
+        private System.Windows.Forms.Button btnLoginTencentWeibo2;
     }
 }
 

@@ -8,9 +8,9 @@ namespace Jeff.Weibo
 {
     public abstract class WeiboBase
     {
-        protected string AUTHORIZE_URL = String.Empty; // "https://api.weibo.com/oauth2/authorize";
-        protected string ACCESS_TOKEN_URL = String.Empty; // "https://api.weibo.com/oauth2/access_token";
-        protected string CallbackUrl = String.Empty; // "https://api.weibo.com/oauth2/access_token";
+        protected string AUTHORIZE_URL = String.Empty;
+        protected string ACCESS_TOKEN_URL = String.Empty;
+        protected string CallbackUrl = String.Empty;
 
         protected string _appKey = String.Empty;
         protected string _appSecret = String.Empty;

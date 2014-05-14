@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Word;
+﻿using Jeff.Weibo;
+using Microsoft.Office.Interop.Word;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -86,11 +87,16 @@ namespace TestApplication
             }
         }
 
+
+        private void btnLoginTencentWeibo_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
         private void btnConvertDocToJpg_Click(object sender, EventArgs e)
         {
-            String file = @"D:\01.docx";
 
-            
         }
 
         public bool ConvertDocToPng(String file, String targetPng)
@@ -191,5 +197,27 @@ namespace TestApplication
             }
         }
 
+        bool start = false;
+
+        private void btnLoginTencentWeibo2_Click(object sender, EventArgs e)
+        {
+            TencentWeibo weibo = new TencentWeibo();
+            
+            byte[] b = System.IO.File.ReadAllBytes("D:\\01.jpg");
+
+            bool ret1 =weibo.PostPicWeibo("第二个", b);
+
+            MessageBox.Show(ret1.ToString());
+        }
+
+        private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+           
+        }
     }
 }
