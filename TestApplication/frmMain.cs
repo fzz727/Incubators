@@ -90,7 +90,7 @@ namespace TestApplication
 
         private void btnLoginTencentWeibo_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -202,22 +202,30 @@ namespace TestApplication
         private void btnLoginTencentWeibo2_Click(object sender, EventArgs e)
         {
             TencentWeibo weibo = new TencentWeibo();
-            
+
             byte[] b = System.IO.File.ReadAllBytes("D:\\01.jpg");
 
-            bool ret1 =weibo.PostPicWeibo("第二个", b);
+            bool ret1 = weibo.PostPicWeibo("第二个", b);
 
             MessageBox.Show(ret1.ToString());
         }
 
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
-            
+
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-           
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Image src = System.Drawing.Image.FromFile("D:\\Projects\\a.png");
+            src = ImageUtilities.CutBottomBlank(src);
+
+            src.Save("D:\\Projects\\b.png", ImageFormat.Png);
         }
     }
 }

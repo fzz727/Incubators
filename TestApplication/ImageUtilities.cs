@@ -80,7 +80,7 @@ namespace TestApplication
 
             using (Graphics graphics = Graphics.FromImage(result))
             {
-                graphics.DrawImage(image, -marginLeft, -marginTop, image.Width, image.Height );
+                graphics.DrawImage(image, -marginLeft, -marginTop, image.Width, image.Height);
             }
 
             return result;
@@ -166,6 +166,45 @@ namespace TestApplication
             }
 
             return foundCodec;
-        } 
+        }
+
+        public static Image CutBottomBlank(Image src)
+        {
+            Bitmap b = src as Bitmap;
+
+            int width = b.Width;
+
+            int height = GetImgContentHeight(b);
+
+            Bitmap result = new Bitmap(width, height);
+
+            using (Graphics graphics = Graphics.FromImage(result))
+            {
+                graphics.DrawImage(src, 0, 0, width, b.Height);
+            }
+
+            return result;
+        }
+
+        private static int GetImgContentHeight(Bitmap b)
+        {
+            int height = b.Height;
+
+            for (int i = b.Height - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < b.Width; j++)
+                {
+                    Color c = b.GetPixel(j, i);
+
+                    if (c.A != 0 || c.B != 0 || c.G != 0 || c.R != 0)
+                    {
+                        height = ((i + 50) > b.Height ? b.Height : (i + 50));
+                        return height;
+                    }
+                }
+            }
+
+            return 0;
+        }
     }
 }
