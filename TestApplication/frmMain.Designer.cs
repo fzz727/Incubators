@@ -38,6 +38,7 @@
             this.btnConvertDocToJpg = new System.Windows.Forms.Button();
             this.btnLoginTencentWeibo2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnRegEx = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLoginSinaWeibo
@@ -137,11 +138,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnRegEx
+            // 
+            this.btnRegEx.Location = new System.Drawing.Point(16, 319);
+            this.btnRegEx.Name = "btnRegEx";
+            this.btnRegEx.Size = new System.Drawing.Size(148, 23);
+            this.btnRegEx.TabIndex = 13;
+            this.btnRegEx.Text = "正则查找";
+            this.btnRegEx.UseVisualStyleBackColor = true;
+            this.btnRegEx.Click += new System.EventHandler(this.btnRegEx_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 494);
+            this.Controls.Add(this.btnRegEx);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLoginTencentWeibo2);
             this.Controls.Add(this.btnConvertDocToJpg);
@@ -171,6 +183,7 @@
         private System.Windows.Forms.Button btnConvertDocToJpg;
         private System.Windows.Forms.Button btnLoginTencentWeibo2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegEx;
     }
 }
 

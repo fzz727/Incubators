@@ -227,5 +227,27 @@ namespace TestApplication
 
             src.Save("D:\\Projects\\b.png", ImageFormat.Png);
         }
+
+        private void btnRegEx_Click(object sender, EventArgs e)
+        {
+            String s1 = "aaaaddf{0:yyyyMMddHH}sdf_{0:dd}_sdf";
+            String s2 = String.Format(s1, DateTime.Now.AddDays(-20));
+            MessageBox.Show(s2);
+            return;
+
+            String src = "abcdefghidilsklj\r\nkcmlo\r\niwermlfksd;f";
+            String tar = "f.+?d";
+
+            MessageBox.Show(src);
+
+            System.Text.RegularExpressions.Regex regEx = new System.Text.RegularExpressions.Regex(tar, System.Text.RegularExpressions.RegexOptions.Multiline);
+
+            System.Text.RegularExpressions.MatchCollection matchs = regEx.Matches(src, 10);
+
+            foreach (System.Text.RegularExpressions.Match match in matchs)
+            {
+                MessageBox.Show(match.Index.ToString() + " " + match.Length + " " + match.Value);
+            }
+        }
     }
 }
